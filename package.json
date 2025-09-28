@@ -1,0 +1,45 @@
+{
+  "name": "kai-financial-health",
+  "version": "0.1.0",
+  "description": "Financial health monitoring and solvency analysis tool for the Kai Finance protocol",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "pnpm clean && pnpm tsup src/main.ts --format esm --sourcemap",
+    "build:bundle": "esbuild ./src/main.ts --bundle --minify --sourcemap --platform=node --target=node20 --format=cjs --outfile=dist/index-bundled.cjs",
+    "watch": "tsup src/main.ts --watch --format esm",
+    "check": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "license": "MIT License",
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.36.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "5.9.2",
+    "typescript-eslint": "^8.33.1",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@kunalabs-io/kai": "^0.19.0",
+    "@mysten/sui": "^1.38.0",
+    "@pythnetwork/pyth-sui-js": "^2.2.0",
+    "commander": "^14.0.1",
+    "decimal.js": "10.6.0",
+    "graphology": "0.26.0",
+    "graphology-dag": "0.4.1"
+  }
+}
